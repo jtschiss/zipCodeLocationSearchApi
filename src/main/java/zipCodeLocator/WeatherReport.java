@@ -13,23 +13,36 @@ import java.nio.charset.Charset;
 import javax.json.JsonArray;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class WeatherReport {
 
-	UriBuilder builder = new UriBuilder("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast");
-
-	builder.queryParam("aggregateHours","24")
-			.setParameter("contentType","json")
-			.setParameter("locationMode","single")
-			.setParameter("unitGroup","metric")
-			.setParameter("key","1PYNQ6AWUDJE9AFERDCHJHSXK")
-			.setParameter("locations","London,UK");
+//	UriBuilder builder = new UriBuilder("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast");
+//
+//
+//
+//	builder.queryParam("aggregateHours","24")
+//			.setParameter("contentType","json")
+//			.setParameter("locationMode","single")
+//			.setParameter("unitGroup","metric")
+//			.setParameter("key","1PYNQ6AWUDJE9AFERDCHJHSXK")
+//			.setParameter("locations","London,UK");
 
 	JsonObject jsonWeatherForecast = null;
 
-	HttpGet get = new HttpGet(builder.build());
-	CloseableHttpClient httpclient = HttpClients.createDefault();
-	CloseableHttpResponse response = httpclient.execute(get);
+	Client client = ClientBuilder.newClient();
+	WebTarget target =
+			client.target("https://api.weather.gov/points/");
+	String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+	ObjectMapper mapper = new ObjectMapper();
+	// 39.7456,-97.0892
+
+//	HttpGet get = new HttpGet(builder.build());
+//	CloseableHttpClient httpclient = HttpClients.createDefault();
+//	CloseableHttpResponse response = httpclient.execute(get);
 
 	try	{
 		if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
