@@ -20,14 +20,16 @@ public class ZipCodeAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final String zipCodeAPIKey = "6bU0kf6E3P3qVULCcL7PQBrASoOpqy9WE0QbBPePRCkZSgefiNoOYmfX8aHNXYuM";
-    private final String zipCode = "53713";
+    //private final String zipCode = "53713";
+
 
     /**
      * Gets zip codes by radius.
      *
      * @return zipcodes
      */
-    public ZipCode getZipCodeInfo() {
+    public ZipCode getZipCodeInfo(String zipCode) {
+        //ZipCode zipCode = new ZipCode();
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target("http://www.zipcodeapi.com/rest/"+zipCodeAPIKey+"/info.json/"+zipCode+"/degrees");
