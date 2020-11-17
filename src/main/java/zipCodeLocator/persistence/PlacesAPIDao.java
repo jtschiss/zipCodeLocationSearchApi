@@ -20,14 +20,14 @@ public class PlacesAPIDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final String key = "qtXNgL1yfaZxG4ueo78gTD1wJaikhC88";
 
-    ZipCodeAPIDao zipCodeAPIDao = new ZipCodeAPIDao();
-    double lat = zipCodeAPIDao.getZipCodeInfo().getLat();
-    double lng = zipCodeAPIDao.getZipCodeInfo().getLng();
+    //ZipCodeAPIDao zipCodeAPIDao = new ZipCodeAPIDao();
+    //double lat = zipCodeAPIDao.getZipCodeInfo("53713").getLat();
+    //double lng = zipCodeAPIDao.getZipCodeInfo("53713").getLng();
 
-    String poi = "outdoor+restaurant";
-    int radius = 600;
+    //String poi = "outdoor+restaurant";
+    //int radius = 600;
 
-    public Places getPlacesInfo () {
+    public Places getPlacesInfo (String poi, double lat, double lng, int radius) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target("https://api.tomtom.com/search/2/search/"+poi+".json?&countrySet=US&&lat="+lat+"&lon="+lng+"&radius="+radius+"&idxSet=POI,addr&key="+key);

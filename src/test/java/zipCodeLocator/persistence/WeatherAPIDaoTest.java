@@ -8,6 +8,6 @@ public class WeatherAPIDaoTest {
     @Test
     void getWeatherSuccess() {
         WeatherAPIDao dao = new WeatherAPIDao();
-        assertEquals("Madison", dao.getWeatherInfo().getCity());
+        assertEquals("Madison", dao.getWeatherInfo("53713").getCity());
     }
 }

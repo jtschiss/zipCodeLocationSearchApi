@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+
 <div class="w3-content" style="width:100%;height:100%">
 
 <div class="w3-container w3-light-gray w3-left w3-border" style="width:25%;height:100%">

@@ -15,9 +15,9 @@ public class WeatherAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final String key = "b8db26839ee70833a065558c101427f9";
-    private final String zipCode = "53713";
+    //private final String zipCode = "53713";
 
-    public Weather getWeatherInfo() {
+    public Weather getWeatherInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target("https://api.interzoid.com/getweatherzipcode?license="+key+"&zip="+zipCode);
