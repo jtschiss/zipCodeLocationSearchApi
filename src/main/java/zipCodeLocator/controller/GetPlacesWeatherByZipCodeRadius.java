@@ -37,18 +37,21 @@ public class GetPlacesWeatherByZipCodeRadius extends HttpServlet {
 
         PlacesAPIDao placesAPIDao = new PlacesAPIDao();
         //PlacesAPI takes the input for radius in meters. Hence, the conversion.
-        Places places = placesAPIDao.getPlacesInfo(poi,zipCode.getLat(),zipCode.getLng(),1609 * miles);
+        Places places = placesAPIDao.getPlacesInfo(poi,zipCode.getLat(),zipCode.getLng(), 1609 * miles);
         req.setAttribute("places", places);
 
         int placesCount = places.getSummary().getNumResults();
         WeatherAPIDao weatherAPIDao = new WeatherAPIDao();
         //generating weather for each place based on its zip code
-        for(int count = 0; count < placesCount; count++) {
-            String weatherZipCode = places.getResults().get(count).getAddress().getPostalCode();
-            //checking if weatherList already contains the zipCode
-            //if not then we populate the weather for that zipCode and add it to the list
-            if(!weatherList.contains(weatherZipCode)) {
-                weatherList.add(weatherAPIDao.getWeatherInfo(weatherZipCode));
+        for(int count = 0; count < 2; count++) {
+            if(places.getResults().size()>0) {
+                String weatherZipCode = places.getResults().get(count).getAddress().getPostalCode();
+                String city = places.getResults().get(count).getAddress().getMunicipality();
+                //checking if weatherList already contains the city
+                //if not then we populate the weather for that city and add it to the list
+                if(!weatherList.contains(city)) {
+                    weatherList.add(weatherAPIDao.getWeatherInfo(weatherZipCode));
+                }
             }
         }
 

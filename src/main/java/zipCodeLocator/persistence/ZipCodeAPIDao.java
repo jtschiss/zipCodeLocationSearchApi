@@ -22,14 +22,12 @@ public class ZipCodeAPIDao {
     private final String zipCodeAPIKey = "eZmVfrbEBJYS661QVFV2WtA6YTZk4uLy5PaoZJv1OQP7iBMLXMJnehnZUI2oGolj";
     //private final String zipCode = "53713";
 
-
     /**
      * Gets zip codes by radius.
      *
      * @return zipcodes
      */
     public ZipCode getZipCodeInfo(String zipCode) {
-        //ZipCode zipCode = new ZipCode();
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target("http://www.zipcodeapi.com/rest/"+zipCodeAPIKey+"/info.json/"+zipCode+"/degrees");
@@ -40,7 +38,6 @@ public class ZipCodeAPIDao {
         try {
             zipCodeResult = mapper.readValue(response, ZipCode.class);
         } catch (JsonProcessingException e) {
-            //e.printStackTrace();
             logger.error("ZipCodeAPIDao mapper.readValue() error: " + e);
         }
         return zipCodeResult;
