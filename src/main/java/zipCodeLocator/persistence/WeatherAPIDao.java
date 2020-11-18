@@ -19,7 +19,6 @@ public class WeatherAPIDao {
 
     //private final String zipCode = "53713";
 
-
     public Weather getWeatherInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
         WebTarget target =

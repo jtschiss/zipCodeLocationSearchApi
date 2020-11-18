@@ -40,7 +40,7 @@ public class POIWeatherFromForm extends HttpServlet{
 
 
         req.setAttribute("placesList", places);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/results2.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/results3.jsp");
         dispatcher.forward(req, resp);
     }
 }
