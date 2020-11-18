@@ -22,6 +22,8 @@
 
     </form>
 
+    <a href="documentation.jsp">Click here</a> for the documentation.
+
 </div>
 </div>
 
