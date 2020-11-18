@@ -21,30 +21,26 @@
                 <tr><th> No places found! Try another zipcode / increase the search radius.</th></tr>
             </c:if>
             <c:if test="${not empty requestScope.places.results}">
-            <tr><th>PlaceName</th>
-                <th>PlacePhone</th>
-                <th>Score:</th>
-                <th>Website</th>
-                <th>Address:</th>
-                <th>Weather:</th>
+            <tr><th>Place</th>
+                <th>Weather</th>
 
             </tr>
 
             <c:forEach var="place" items="${requestScope.places.results}">
             <tr>
-                <td>name : ${place.poi.name} <br>
-                    phone : ${place.poi.phone} <br>
-                    score : ${place.score} <br>
-                    website : ${place.poi.url} <br>
-                    address : ${place.address.freeformAddress} <br>
+                <td><b>name :</b> ${place.poi.name} <br>
+                    <b>phone :</b> ${place.poi.phone} <br>
+                    <b>score :</b> ${place.score} <br>
+                    <b>website :</b> ${place.poi.url} <br>
+                    <b>address :</b> ${place.address.freeformAddress} <br>
                 </td>
                 <c:forEach var="weatherInfo" items="${requestScope.weatherList}">
                     <c:if test="${weatherInfo.city.equals(place.address.municipality)}">
-                        <td>tempF : ${weatherInfo.tempF} <br>
-                            info : ${weatherInfo.weather} <br>
-                            humidity : ${weatherInfo.relativeHumidity} <br>
-                            windMPH : ${weatherInfo.windMPH} <br>
-                            windDir : ${weatherInfo.windDir} <br>
+                        <td><b>tempF :</b> ${weatherInfo.tempF} <br>
+                            <b>info :</b> ${weatherInfo.weather} <br>
+                            <b>humidity :</b> ${weatherInfo.relativeHumidity} <br>
+                            <b>windMPH :</b> ${weatherInfo.windMPH} <br>
+                            <b>windDir :</b> ${weatherInfo.windDir} <br>
                         </td>
 
                     </c:if>
