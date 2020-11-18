@@ -8,8 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ZipCodeAPIDaoTest {
     @Test
     void getZipCodeSuccess() {
-        ZipCodeAPIDao dao = new ZipCodeAPIDao();
-        assertEquals("Madison", dao.getZipCodeInfo().getCity());
         //ZipCode zipCode = new ZipCode();
         //zipCode.setZipCode("53713");
         ZipCodeAPIDao zipCodeAPIDao = new ZipCodeAPIDao();
