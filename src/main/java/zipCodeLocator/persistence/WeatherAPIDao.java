@@ -15,7 +15,7 @@ public class WeatherAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    private final String key = "6efb73d2fed84a3ac74efa018a7e9d85";
+    private final String key = "729fa68f983df0d6dee542e5b5e8c96f";
     //private final String zipCode = "53713";
 
 
