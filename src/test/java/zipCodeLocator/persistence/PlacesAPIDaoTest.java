@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlacesAPIDaoTest {
-    @Test
+   /* @Test
     void getPlacesByRadiusSuccess() {
         PlacesAPIDao dao = new PlacesAPIDao();
         String poi = "outdoor restaurant";
@@ -13,5 +13,5 @@ public class PlacesAPIDaoTest {
         int radius = 600;
 
         assertEquals("Milio's Sandwiches", dao.getPlacesInfo(poi,lat,lng,radius).getResults().get(0).getPoi().getName());
-    }
+    }*/
 }
