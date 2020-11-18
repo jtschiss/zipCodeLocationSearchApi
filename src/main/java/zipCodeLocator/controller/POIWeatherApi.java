@@ -10,6 +10,7 @@ import zipCodeLocator.entity.placesInfo.Places;
 import zipCodeLocator.entity.weatherInfo.Weather;
 import zipCodeLocator.entity.zipCodeInfo.ZipCode;
 import zipCodeLocator.persistence.PlacesAPIDao;
+import zipCodeLocator.persistence.WeatherAPIDao;
 import zipCodeLocator.persistence.ZipCodeAPIDao;
 
 import org.apache.logging.log4j.LogManager;
@@ -44,6 +45,10 @@ public class POIWeatherApi {
             //PlacesAPI takes the input for radius in meters. Hence, the conversion.
             Places places = placesAPIDao.getPlacesInfo(poi,zipCode.getLat(),zipCode.getLng(),1609 * miles);
 
+            WeatherAPIDao weatherAPIDao = new WeatherAPIDao();
+            //Gets the weather for a zip code
+            Weather weather = weatherAPIDao.getWeatherInfo(zipCode.getZipCode());
+
             int placesCount = places.getSummary().getNumResults();
             System.out.println("Number of Places: " + placesCount);
 //            WeatherAPIDao weatherAPIDao = new WeatherAPIDao();
@@ -72,7 +77,7 @@ public class POIWeatherApi {
                 place.setWebsite(places.getResults().get(count).getPoi().getUrl());
                 place.setAddress(places.getResults().get(count).getAddress().getFreeformAddress());
                 //TODO add weather information to output
-                place.setWeather("TODO");
+                place.setWeather(weather.getWeather());
                 System.out.println("Place: " + place.toString());
                 //adding object to the SimplifiedPlaceInfoList
                 placeList.add(place);
