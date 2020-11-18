@@ -38,5 +38,16 @@
         <h3>getZipCodeInfo.java</h3>
         This method returns the zip code data.
 
+        <h2>How to use Zip Code Location Search as a Service</h2>
+        <h3>API Call Format</h3>
+        <p>http://52.15.182.169:8080//zipCodeLocationSearchApi_war/services/POIWeatherAPI?poi=&lt;poi&gt;&zip=&lt;zip&gt;&miles=&lt;miles&gt;</p>
+
+        <h3>Parameters</h3>
+        <h4>poi</h4>
+        <p>the point of interest you are searching for</p>
+        <h4>zip</h4>
+        <p>the zip code you would like to search</p>
+        <h4>miles</h4>
+        <p>the radius in miles that you would like to search</p>
 </body>
 </html>
