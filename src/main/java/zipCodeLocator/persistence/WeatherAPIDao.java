@@ -14,8 +14,7 @@ import javax.ws.rs.core.MediaType;
 public class WeatherAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private final String key = "b8db26839ee70833a065558c101427f9";
-    //private final String zipCode = "53713";
+    private final String key = "a29cd538c59a050582d6c689b4e408ef";
 
     public Weather getWeatherInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
@@ -26,7 +25,6 @@ public class WeatherAPIDao {
         ObjectMapper mapper = new ObjectMapper();
         Weather weather = null;
         try {
-            System.out.println(response);
             weather = mapper.readValue(response, Weather.class);
         } catch (JsonProcessingException e) {
             //e.printStackTrace();

@@ -60,6 +60,22 @@ public class Weather {
 	@JsonProperty("TempF")
 	private String tempF;
 
+	public String getWindDir() {
+		return windDir;
+	}
+
+	public void setWindDir(String windDir) {
+		this.windDir = windDir;
+	}
+
+	public String getWindMPH() {
+		return windMPH;
+	}
+
+	public void setWindMPH(String windMPH) {
+		this.windMPH = windMPH;
+	}
+
 	public String getCity() {
 		return city;
 	}
@@ -119,12 +135,11 @@ public class Weather {
 	@Override
 	public String toString() {
 		return "Weather{" +
-				"city='" + city + '\'' +
+				"windDir='" + windDir + '\'' +
+				", city='" + city + '\'' +
 				", weather='" + weather + '\'' +
-				", sunset='" + sunset + '\'' +
 				", relativeHumidity='" + relativeHumidity + '\'' +
-				", state='" + state + '\'' +
-				", sunrise='" + sunrise + '\'' +
+				", windMPH='" + windMPH + '\'' +
 				", tempF='" + tempF + '\'' +
 				'}';
 	}
