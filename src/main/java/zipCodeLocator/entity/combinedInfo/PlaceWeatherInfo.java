@@ -1,6 +1,7 @@
 package zipCodeLocator.entity.combinedInfo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import zipCodeLocator.entity.weatherInfo.Weather;
 
 public class PlaceWeatherInfo {
 
@@ -20,7 +21,7 @@ public class PlaceWeatherInfo {
     private String address;
 
     @JsonProperty("weather")
-    private String weather;
+    private Weather weather;
 
     public PlaceWeatherInfo() {
     }
@@ -65,11 +66,11 @@ public class PlaceWeatherInfo {
         this.address = address;
     }
 
-    public String getWeather() {
+    public Weather getWeather() {
         return weather;
     }
 
-    public void setWeather(String weather) {
+    public void setWeather(Weather weather) {
         this.weather = weather;
     }
 

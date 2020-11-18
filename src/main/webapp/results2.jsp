@@ -18,26 +18,31 @@
         <table border=1 cellpadding=5>
 
 
-            <tr><th>PlaceName</th>
-                <th>PlacePhone</th>
-                <th>Score</th>
-                <th>Website</th>
-                <th>Address</th>
+            <tr>
+                <th>Place</th>
                 <th>Weather</th>
             </tr>
 
             <c:forEach var="place" items="${requestScope.placesList.places}">
                 <tr>
-                    <td>${place.name}</td>
-                    <td>${place.phoneNumber}</td>
-                    <td>${place.score}</td>
-                    <td>${place.address}</td>
-                    <td>${place.website}</td>
-                    <td>${place.weather}</td>
+                    <td>Name: ${place.name}<br/>
+                        Phone: ${place.phoneNumber}<br/>
+                        Score: ${place.score}<br/>
+                        Address: ${place.address}<br/>
+                        Website: ${place.website}<br/>
+                    </td>
+                    <td>Weather: ${place.weather.weather}<br/>
+                        Temp: ${place.weather.tempF}<br/>
+                        Humidity: ${place.weather.relativeHumidity}<br/>
+                        Wind Speed: ${place.weather.windMPH}MPH<br/>
+                        Wind Direction: ${place.weather.windDir}
+                    </td>
                 </tr>
             </c:forEach>
 
         </table>
+
+        <a href="index.jsp">Back to home</a>
     </div>
 </div>
 </body>

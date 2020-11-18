@@ -38,7 +38,6 @@ public class POIWeatherFromForm extends HttpServlet{
 
         SimplifiedPlacesList places = dao.getPlacesInfo(poi, zip, miles);
 
-        System.out.println("Places that are being sent: " +places);
 
         req.setAttribute("placesList", places);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results2.jsp");

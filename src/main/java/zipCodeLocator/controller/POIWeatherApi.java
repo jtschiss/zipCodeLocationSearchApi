@@ -51,7 +51,6 @@ public class POIWeatherApi {
             Weather weather = weatherAPIDao.getWeatherInfo(zipCode.getZipCode());
 
             int placesCount = places.getSummary().getNumResults();
-            System.out.println("Number of Places: " + placesCount);
 //            WeatherAPIDao weatherAPIDao = new WeatherAPIDao();
 //            //generating weather for each place based on its zip code
 //            for(int count = 0; count < placesCount; count++) {
@@ -77,8 +76,7 @@ public class POIWeatherApi {
                 place.setScore(places.getResults().get(count).getScore());
                 place.setWebsite(places.getResults().get(count).getPoi().getUrl());
                 place.setAddress(places.getResults().get(count).getAddress().getFreeformAddress());
-                place.setWeather(weather.getWeather());
-                System.out.println("Place: " + place.toString());
+                place.setWeather(weather);
                 //adding object to the SimplifiedPlaceInfoList
                 placeList.addPlace(place);
             }
@@ -88,11 +86,9 @@ public class POIWeatherApi {
             try {
                 json = mapper.writeValueAsString(placeList);
             } catch (JsonProcessingException e) {
-                System.out.println("EXCEPTION");
                 e.printStackTrace();
             }
 
-            System.out.println("JSON: " + json);
             // Return a json data
             return Response.status(200).entity(json).build();
         }
