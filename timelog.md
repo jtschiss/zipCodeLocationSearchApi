@@ -1,4 +1,4 @@
-#Project Time Log
+# Project Time Log
 
 11/4/2020: wrote initial readme (Simon); set up Github repo (Joah)
 
