@@ -2,11 +2,11 @@
 
 ## Problem Statement
 
-Planning a bicycle ride is not always easy.  In addtion to finding a good trail, a cyclist must also determine whether the weather will cooperate.
+Planning activities is not always easy, especially if one does not know whether the weather will cooperate.
 
 ## Solution
 
-The Zip Code Location Search API provides a simple, user-friendly interface that allows the user to enter a zip code, and returns a list of bicyle trails within that zip code, along with the weather for each of them.
+The Zip Code Location Search API provides a simple, user-friendly interface that allows the user to enter a zip code, a radius around that zip code, and a type of places of interest (POIs) to search for, and returns a list of the designated POIs within the user-specified area.  It also returns weather information for each of them.
 
 ## Project Plan
 
