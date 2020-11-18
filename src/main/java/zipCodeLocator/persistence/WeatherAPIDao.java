@@ -14,14 +14,7 @@ import javax.ws.rs.core.MediaType;
 public class WeatherAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-
-<<<<<<< HEAD
     private final String key = "729fa68f983df0d6dee542e5b5e8c96f";
-=======
-    private final String key = "789bd133c074d9396b610f1e7c2d4fa3";
->>>>>>> 1aad0ed295d65be9e579eb7604005d3e75be92f0
-    //private final String zipCode = "53713";
-
 
     public Weather getWeatherInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
