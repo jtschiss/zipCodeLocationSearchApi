@@ -18,7 +18,7 @@
 
         <h2>Example JSON Output</h2>
 
-        http://?????/zipCodeLocationSearchApi_war/services/POIWeatherAPI?poi=pizza&zip=53713&miles=10
+        http://52.15.182.169/zipCodeLocationSearchApi_war/services/POIWeatherAPI?poi=pizza&zip=53713&miles=10
 
         0
         name	"Badger Pizza"
