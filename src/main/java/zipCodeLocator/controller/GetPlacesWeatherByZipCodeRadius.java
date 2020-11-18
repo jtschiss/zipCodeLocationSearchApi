@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(
-        urlPatterns = {"/getPlacesWeatherByZipCodeRadius"}
+        urlPatterns = {"/getPlacesWeatherByZipCodeRadius", "/getZipCodeInfo"}
 )
 
 public class GetPlacesWeatherByZipCodeRadius extends HttpServlet {

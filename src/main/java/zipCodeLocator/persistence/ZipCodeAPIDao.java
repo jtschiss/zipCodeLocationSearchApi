@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 public class ZipCodeAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private final String zipCodeAPIKey = "6bU0kf6E3P3qVULCcL7PQBrASoOpqy9WE0QbBPePRCkZSgefiNoOYmfX8aHNXYuM";
+    private final String zipCodeAPIKey = "eZmVfrbEBJYS661QVFV2WtA6YTZk4uLy5PaoZJv1OQP7iBMLXMJnehnZUI2oGolj";
     //private final String zipCode = "53713";
 
 
