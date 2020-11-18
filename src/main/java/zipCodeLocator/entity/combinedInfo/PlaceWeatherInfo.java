@@ -22,6 +22,9 @@ public class PlaceWeatherInfo {
     @JsonProperty("weather")
     private String weather;
 
+    public PlaceWeatherInfo() {
+    }
+
     public String getName() {
         return name;
     }

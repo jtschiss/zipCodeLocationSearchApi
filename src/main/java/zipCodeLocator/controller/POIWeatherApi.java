@@ -6,6 +6,7 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import zipCodeLocator.entity.combinedInfo.PlaceWeatherInfo;
+import zipCodeLocator.entity.combinedInfo.SimplifiedPlacesList;
 import zipCodeLocator.entity.placesInfo.Places;
 import zipCodeLocator.entity.weatherInfo.Weather;
 import zipCodeLocator.entity.zipCodeInfo.ZipCode;
@@ -59,7 +60,7 @@ public class POIWeatherApi {
 
             //Gets name, phone number, score, website, address, and weather info into an list
             ObjectMapper mapper = new ObjectMapper();
-            List<PlaceWeatherInfo> placeList = new ArrayList<>();
+            SimplifiedPlacesList placeList = new SimplifiedPlacesList();
             PlaceWeatherInfo place = null;
 
             // looping through the list of places
@@ -75,9 +76,8 @@ public class POIWeatherApi {
                 place.setWeather("TODO");
                 System.out.println("Place: " + place.toString());
                 //adding object to the SimplifiedPlaceInfoList
-                placeList.add(place);
+                placeList.addPlace(place);
             }
-
 
             String json = null;
 
