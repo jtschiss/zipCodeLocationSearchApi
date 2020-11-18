@@ -8,7 +8,7 @@
     <h4>Enter a <b>POI</b> , <b>ZipCode</b> and <b>Miles</b> to search for places.</h4>
     </br>
 
-    <form action="getPlacesWeatherByZipCodeRadius" method="GET">
+    <form action="getPlacesFromForm" method="GET">
 
         <h4>Search for POI:</h4>
         <input class="w3-input w3-border" type="text" name="param1" value="" />
