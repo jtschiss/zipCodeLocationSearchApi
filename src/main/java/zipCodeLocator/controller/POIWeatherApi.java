@@ -6,6 +6,7 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import zipCodeLocator.entity.combinedInfo.PlaceWeatherInfo;
+import zipCodeLocator.entity.combinedInfo.SimplifiedPlacesList;
 import zipCodeLocator.entity.placesInfo.Places;
 import zipCodeLocator.entity.weatherInfo.Weather;
 import zipCodeLocator.entity.zipCodeInfo.ZipCode;
@@ -50,7 +51,6 @@ public class POIWeatherApi {
             Weather weather = weatherAPIDao.getWeatherInfo(zipCode.getZipCode());
 
             int placesCount = places.getSummary().getNumResults();
-            System.out.println("Number of Places: " + placesCount);
 //            WeatherAPIDao weatherAPIDao = new WeatherAPIDao();
 //            //generating weather for each place based on its zip code
 //            for(int count = 0; count < placesCount; count++) {
@@ -64,7 +64,7 @@ public class POIWeatherApi {
 
             //Gets name, phone number, score, website, address, and weather info into an list
             ObjectMapper mapper = new ObjectMapper();
-            List<PlaceWeatherInfo> placeList = new ArrayList<>();
+            SimplifiedPlacesList placeList = new SimplifiedPlacesList();
             PlaceWeatherInfo place = null;
 
             // looping through the list of places
@@ -76,24 +76,19 @@ public class POIWeatherApi {
                 place.setScore(places.getResults().get(count).getScore());
                 place.setWebsite(places.getResults().get(count).getPoi().getUrl());
                 place.setAddress(places.getResults().get(count).getAddress().getFreeformAddress());
-                //TODO add weather information to output
-                place.setWeather(weather.getWeather());
-                System.out.println("Place: " + place.toString());
+                place.setWeather(weather);
                 //adding object to the SimplifiedPlaceInfoList
-                placeList.add(place);
+                placeList.addPlace(place);
             }
-
 
             String json = null;
 
             try {
                 json = mapper.writeValueAsString(placeList);
             } catch (JsonProcessingException e) {
-                System.out.println("EXCEPTION");
                 e.printStackTrace();
             }
 
-            System.out.println("JSON: " + json);
             // Return a json data
             return Response.status(200).entity(json).build();
         }
