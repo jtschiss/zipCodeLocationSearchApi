@@ -22,7 +22,7 @@ public class POIWeatherApiDao {
     public SimplifiedPlacesList getPlacesInfo (String poi, String zip, int miles) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
-                client.target("http://52.15.182.169:8080//zipCodeLocationSearchApi_war/services/POIWeatherAPI?poi="+poi+"&zip="+zip+"&miles="+miles);
+                client.target("http://52.15.182.169:8080/zipCodeLocationSearchApi/services/POIWeatherAPI?poi="+poi+"&zip="+zip+"&miles="+miles);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         logger.info("response: " + response);
         ObjectMapper mapper = new ObjectMapper();
