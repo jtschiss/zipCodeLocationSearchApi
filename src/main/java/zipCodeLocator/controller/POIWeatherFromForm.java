@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Poi weather from form.
+ */
 @WebServlet(
         urlPatterns = {"/getPlacesFromForm"}
 )

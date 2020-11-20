@@ -11,6 +11,9 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * The type Weather api dao.
+ */
 public class WeatherAPIDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
@@ -19,6 +22,12 @@ public class WeatherAPIDao {
 
     //private final String zipCode = "53713";
 
+    /**
+     * Gets weather info.
+     *
+     * @param zipCode the zip code
+     * @return the weather info
+     */
     public Weather getWeatherInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
         WebTarget target =

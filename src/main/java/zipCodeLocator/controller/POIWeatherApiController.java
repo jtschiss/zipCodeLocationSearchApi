@@ -5,6 +5,9 @@ import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Poi weather api controller.
+ */
 //Defines the base URI for all resource URIs.
 @ApplicationPath("/services")
 

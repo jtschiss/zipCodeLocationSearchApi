@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type Get places weather by zip code radius.
+ */
 @WebServlet(
         urlPatterns = {"/getPlacesWeatherByZipCodeRadius", "/getZipCodeInfo"}
 )
