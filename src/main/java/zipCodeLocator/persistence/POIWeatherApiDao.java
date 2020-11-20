@@ -15,10 +15,21 @@ import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Poi weather api dao.
+ */
 public class POIWeatherApiDao {
     //HttpServletRequest req;
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Gets places info.
+     *
+     * @param poi   the poi
+     * @param zip   the zip
+     * @param miles the miles
+     * @return the places info
+     */
     public SimplifiedPlacesList getPlacesInfo (String poi, String zip, int miles) {
         Client client = ClientBuilder.newClient();
         WebTarget target =

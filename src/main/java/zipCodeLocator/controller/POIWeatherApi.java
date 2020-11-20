@@ -19,8 +19,20 @@ import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Poi weather api.
+ */
 public class POIWeatherApi {
     private final Logger logger = LogManager.getLogger(this.getClass());
+
+    /**
+     * Gets weather.
+     *
+     * @param poi   the poi
+     * @param zip   the zip
+     * @param miles the miles
+     * @return the weather
+     */
     @Path("/POIWeatherAPI")
 
 

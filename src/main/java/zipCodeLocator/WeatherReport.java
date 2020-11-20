@@ -7,10 +7,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * The type Weather report.
+ */
 public class WeatherReport {
 
 	private final Logger logger = LogManager.getLogger(this.getClass());
 
+	/**
+	 * Gets weather.
+	 */
 	public void getWeather() {
 
 		JsonObject jsonWeatherForecast = null;

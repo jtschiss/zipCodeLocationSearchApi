@@ -15,11 +15,23 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * The type Places api dao.
+ */
 public class PlacesAPIDao {
     //HttpServletRequest req;
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final String key = "qtXNgL1yfaZxG4ueo78gTD1wJaikhC88";
 
+    /**
+     * Gets places info.
+     *
+     * @param poi    the poi
+     * @param lat    the lat
+     * @param lng    the lng
+     * @param radius the radius
+     * @return the places info
+     */
     public Places getPlacesInfo (String poi, double lat, double lng, int radius) {
         Client client = ClientBuilder.newClient();
         WebTarget target =

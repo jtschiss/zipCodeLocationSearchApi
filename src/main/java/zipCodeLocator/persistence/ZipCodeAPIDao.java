@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * The type Zip code api dao.
+ *
  * @author JeevaG
  */
 public class ZipCodeAPIDao {
@@ -25,7 +26,8 @@ public class ZipCodeAPIDao {
     /**
      * Gets zip codes by radius.
      *
-     * @return zipcodes
+     * @param zipCode the zip code
+     * @return zipcodes zip code info
      */
     public ZipCode getZipCodeInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
