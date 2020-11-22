@@ -1,8 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: jeeva
-  Date: 11/14/20
-  Time: 5:37 PM<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< HEAD
+  Date: 11/17/20
+  Time: 7:42 PM
+=======
+  Date: 11/18/20
+  Time: 3:28 PM
+>>>>>>> origin/main
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,71 +18,56 @@
     <title>Places & Weather search by-ZipCode-radius</title>
 
 </head>
+<head>
+    <title>Places & Weather search by ZipCode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
 <body>
-<div class="container-fluid">
-<<<<<<< HEAD
-    <table border=1 cellpadding=5>
-        <c:if test="${empty requestScope.places.results}">
-            <tr><th> No places found! Try another zipcode / increase the search radius.</th></tr>
-        </c:if>
-        <c:if test="${not empty requestScope.places.results}">
-            <tr>
-                <th>Point of Interest</th>
-                <th>Weather</th>
-            </tr>
+<div class="w3-content w3-light-gray" style="width:100%;height:100%">
 
-            <c:forEach var="place" items="${requestScope.places.results}">
+    <table class="w3-table-all">
+        <thead>
+        <tr class="w3-light-grey">
+            <th colspan="2"><h3><strong>Places & Weather search results by ZipCode</strong></h3></th>
+        </tr>
+        </thead>
+
+        <c:if test="${empty requestScope.placeWeatherMap}">
+            <thead>
+            <tr class="w3-light-grey">
+                <th>No places found! Try another zipcode / Increase the search radius.</th>
+            </tr>
+            </thead>
+        </c:if>
+
+        <c:if test="${not empty requestScope.placeWeatherMap}">
+            <thead>
+            <tr class="w3-light-grey">
+                <th><h4><strong>Place</strong></h4></th>
+                <th><h4><strong>Weather</strong></h4></th>
+            </tr>
+            </thead>
+
+            <c:forEach var="placeWeather" items="${requestScope.placeWeatherMap}">
                 <tr>
                     <td>
-                        Name: ${place.poi.name} <br>
-                        Phone: ${place.poi.phone} <br>
-                        Score: ${place.score} <br>
-                        Website: ${place.poi.url} <br>
-                        Address: ${place.address.freeformAddress}
+                        <b>Name: </b>${placeWeather.key.poi.name} <br>
+                        <b>Phone: </b>${placeWeather.key.poi.phone}<br>
+                        <b> Score: </b>${placeWeather.key.score}  <br>
+                        <b>Website: </b>${placeWeather.key.poi.url} <br>
+                        <b>Address:</b> ${placeWeather.key.address.freeformAddress} <br>
                     </td>
-                    <c:forEach var="weatherInfo" items="${requestScope.weatherList}">
-                        <c:if test="${weatherInfo.city.equals(place.address.municipality)}">
-                            <td>
-                                Temperature (Fahrenheit): ${weatherInfo.tempF} <br>
-                                Cloud cover: ${weatherInfo.weather} <br>
-                                Humidity: ${weatherInfo.relativeHumidity} <br>
-                                Wind speed (MPH): ${weatherInfo.windMPH} <br>
-                                Wind direction: ${weatherInfo.windDir}
-                            </td>
-=======
-        <table border=1 cellpadding=5>
-            <c:if test="${empty requestScope.places.results}">
-                <tr><th> No places found! Try another zipcode / increase the search radius.</th></tr>
-            </c:if>
-            <c:if test="${not empty requestScope.places.results}">
-            <tr><th>Place</th>
-                <th>Weather</th>
-
-            </tr>
-
-            <c:forEach var="place" items="${requestScope.places.results}">
-            <tr>
-                <td><b>name :</b> ${place.poi.name} <br>
-                    <b>phone :</b> ${place.poi.phone} <br>
-                    <b>score :</b> ${place.score} <br>
-                    <b>website :</b> ${place.poi.url} <br>
-                    <b>address :</b> ${place.address.freeformAddress} <br>
-                </td>
-                <c:forEach var="weatherInfo" items="${requestScope.weatherList}">
-                    <c:if test="${weatherInfo.city.equals(place.address.municipality)}">
-                        <td><b>tempF :</b> ${weatherInfo.tempF} <br>
-                            <b>info :</b> ${weatherInfo.weather} <br>
-                            <b>humidity :</b> ${weatherInfo.relativeHumidity} <br>
-                            <b>windMPH :</b> ${weatherInfo.windMPH} <br>
-                            <b>windDir :</b> ${weatherInfo.windDir} <br>
-                        </td>
->>>>>>> 1aad0ed295d65be9e579eb7604005d3e75be92f0
-
-                        </c:if>
-                        <!--TODO... Once the above if statement is executed, we need to break out of the forEach loop-->
-                    </c:forEach>
+                    <td>
+                        <b>Temperature (F): </b>${placeWeather.value.tempF} <br>
+                        <b>Cloud cover: </b>${placeWeather.value.weather}<br>
+                        <b> Humidity: </b>${placeWeather.value.relativeHumidity}  <br>
+                        <b>Wind speed (MPH): </b>${placeWeather.value.windMPH} <br>
+                        <b>Wind direction:</b> ${placeWeather.value.windDir} <br>
+                    </td>
                 </tr>
             </c:forEach>
+
         </c:if>
 
     </table>

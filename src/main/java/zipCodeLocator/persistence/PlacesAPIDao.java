@@ -4,24 +4,27 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import zipCodeLocator.utilities.PropertiesLoader;
 import zipCodeLocator.entity.placesInfo.Places;
-import zipCodeLocator.entity.placesInfo.Summary;
-import zipCodeLocator.entity.weatherInfo.Weather;
-import zipCodeLocator.entity.zipCodeInfo.ZipCode;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 
 /**
  * The type Places api dao.
  */
 public class PlacesAPIDao {
-    //HttpServletRequest req;
+
+    PropertiesLoader loader = new PropertiesLoader();
+    Properties properties = loader.loadProperties();
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private final String key = "qtXNgL1yfaZxG4ueo78gTD1wJaikhC88";
+    private final String key = properties.getProperty("placesAPIKey");
 
     /**
      * Gets places info.
@@ -32,7 +35,7 @@ public class PlacesAPIDao {
      * @param radius the radius
      * @return the places info
      */
-    public Places getPlacesInfo (String poi, double lat, double lng, int radius) {
+    public Places getPlacesInfo(String poi, double lat, double lng, int radius) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
                 client.target("https://api.tomtom.com/search/2/search/"+poi+".json?&countrySet=US&&lat="+lat+"&lon="+lng+"&radius="+radius+"&idxSet=POI,addr&key="+key);
@@ -46,4 +49,5 @@ public class PlacesAPIDao {
         }
         return places;
     }
+
 }
