@@ -5,12 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import zipCodeLocator.entity.zipCodeInfo.ZipCode;
+import zipCodeLocator.utilities.PropertiesLoader;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-
+import java.util.Properties;
 
 /**
  * The type Zip code api dao.
@@ -19,9 +20,10 @@ import javax.ws.rs.core.MediaType;
  */
 public class ZipCodeAPIDao {
 
+    PropertiesLoader loader = new PropertiesLoader();
+    Properties properties = loader.loadProperties();
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private final String zipCodeAPIKey = "x9WP1IrqK1AA80o3RkpWn7YhbmvWnsW9w4dx5sRePO8YfN9RmAQmAm0gVRMAjLax";
-    //private final String zipCode = "53713";
+    private final String key = properties.getProperty("zipCodeAPIKey");
 
     /**
      * Gets zip codes by radius.
@@ -32,8 +34,7 @@ public class ZipCodeAPIDao {
     public ZipCode getZipCodeInfo(String zipCode) {
         Client client = ClientBuilder.newClient();
         WebTarget target =
-                client.target("http://www.zipcodeapi.com/rest/"+zipCodeAPIKey+"/info.json/"+zipCode+"/degrees");
-        //https://www.zipcodeapi.com/rest/<api_key>/info.<format>/<zip_code>/<units>
+                client.target("http://www.zipcodeapi.com/rest/"+key+"/info.json/"+zipCode+"/degrees");
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
         ZipCode zipCodeResult = null;

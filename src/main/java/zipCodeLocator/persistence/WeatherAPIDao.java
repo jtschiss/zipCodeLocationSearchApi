@@ -5,22 +5,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import zipCodeLocator.entity.weatherInfo.Weather;
+import zipCodeLocator.utilities.PropertiesLoader;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import java.util.Properties;
 
 /**
  * The type Weather api dao.
  */
 public class WeatherAPIDao {
 
+    PropertiesLoader loader = new PropertiesLoader();
+    Properties properties = loader.loadProperties();
     private final Logger logger = LogManager.getLogger(this.getClass());
-
-    private final String key = "729fa68f983df0d6dee542e5b5e8c96f";
-
-    //private final String zipCode = "53713";
+    private final String key = properties.getProperty("weatherAPIKey");
 
     /**
      * Gets weather info.
@@ -39,7 +40,6 @@ public class WeatherAPIDao {
         try {
             weather = mapper.readValue(response, Weather.class);
         } catch (JsonProcessingException e) {
-            //e.printStackTrace();
             logger.error("weatherInfoServiceDao mapper.readValue() error: " + e);
         }
         return weather;
